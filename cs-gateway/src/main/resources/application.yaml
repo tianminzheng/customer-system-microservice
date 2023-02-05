@@ -1,0 +1,8 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: integration-service
+          uri: gray://integration-service
+          predicates:
+            - Path=/integration/**

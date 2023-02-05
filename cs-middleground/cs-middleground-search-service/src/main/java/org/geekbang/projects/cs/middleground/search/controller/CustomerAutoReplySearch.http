@@ -1,0 +1,21 @@
+POST localhost:11001/customerAutoReply/search
+Content-Type: application/json
+
+{
+  "keyWord" : "物",
+  "isDeleted" : "0"
+}
+
+###
+
+
+POST localhost:11001/customerAutoReply/search
+Content-Type: application/json
+
+{
+  "keyWord" : "物流",
+  "isDeleted" : "0",
+  "pinnedContentIds" : [3]
+}
+
+###

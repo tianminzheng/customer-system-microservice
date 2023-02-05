@@ -1,0 +1,2 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  org.geekbang.projects.cs.security.config.CsSecurityAutoConfiguration
