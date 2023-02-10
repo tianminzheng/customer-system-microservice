@@ -14,8 +14,8 @@ public class CustomLoadBalancerConfig {
 
     @Bean
     public ReactorServiceInstanceLoadBalancer customLoadBalancer(ObjectProvider<ServiceInstanceListSupplier> serviceInstanceListSupplierProvider) {
-//        return new CustomRandomLoadBalancerClient(serviceInstanceListSupplierProvider);
+        return new CustomRandomLoadBalancerClient(serviceInstanceListSupplierProvider);
 
-        return new TagLoadBalancerClient(serviceInstanceListSupplierProvider);
+//        return new TagLoadBalancerClient(serviceInstanceListSupplierProvider);
     }
 }
