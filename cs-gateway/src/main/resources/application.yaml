@@ -1,8 +1,28 @@
 spring:
   cloud:
     gateway:
+      discovery:
+        locator:
+          enabled: true
+
+---
+
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+
+    gateway:
       routes:
-        - id: integration-service
-          uri: gray://integration-service
+        - id: baiduroute
+          uri: https://www.baidu.com
           predicates:
-            - Path=/integration/**
+            - Path=/baidu/**
+        - id: ticketroute
+#          uri: lb://ticket-service
+          uri: http://localhost:12001/customerTickets/
+          predicates:
+            - Path=/ticket/**
+#          filters:
+#            - PrefixPath=/cs

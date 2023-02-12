@@ -10,6 +10,7 @@ import org.geekbang.projects.cs.middleground.customer.entity.staff.CustomerStaff
 import org.geekbang.projects.cs.middleground.customer.entity.tenant.OutsourcingSystem;
 import org.geekbang.projects.cs.middleground.customer.event.CustomerStaffChangedEventProducer;
 import org.geekbang.projects.cs.middleground.customer.event.CustomerStaffChangedEventWithTagProducer;
+import org.geekbang.projects.cs.middleground.customer.event.stream.CustomerStaffChangedEventStreamProducer;
 import org.geekbang.projects.cs.middleground.customer.integration.CustomerStaffIntegrationClient;
 import org.geekbang.projects.cs.middleground.customer.mapper.CustomerStaffMapper;
 import org.geekbang.projects.cs.middleground.customer.service.ICustomerStaffService;
@@ -34,6 +35,9 @@ public class CustomerStaffServiceImpl extends ServiceImpl<CustomerStaffMapper, C
 
     @Autowired
     CustomerStaffChangedEventWithTagProducer customerStaffChangedEventWithTagProducer;
+
+    @Autowired
+    CustomerStaffChangedEventStreamProducer customerStaffChangedEventStreamProducer;
 
     @Override
     public PageObject<CustomerStaff> findCustomerStaffs(Long pageSize, Long pageIndex) {
@@ -83,7 +87,8 @@ public class CustomerStaffServiceImpl extends ServiceImpl<CustomerStaffMapper, C
         Boolean saved = this.save(customerStaff);
 
 //        customerStaffChangedEventProducer.sendCustomerStaffChangedEvent(customerStaff, "CREATE");
-        customerStaffChangedEventWithTagProducer.sendCustomerStaffChangedEvent(customerStaff, "CREATE");
+//        customerStaffChangedEventWithTagProducer.sendCustomerStaffChangedEvent(customerStaff, "CREATE");
+        customerStaffChangedEventStreamProducer.sendCustomerStaffChangedEvent(customerStaff, "CREATE");
 
         return saved;
     }
@@ -94,7 +99,8 @@ public class CustomerStaffServiceImpl extends ServiceImpl<CustomerStaffMapper, C
         Boolean updated = this.updateById(customerStaff);
 
 //        customerStaffChangedEventProducer.sendCustomerStaffChangedEvent(customerStaff, "UPDATED");
-        customerStaffChangedEventWithTagProducer.sendCustomerStaffChangedEvent(customerStaff, "UPDATED");
+//        customerStaffChangedEventWithTagProducer.sendCustomerStaffChangedEvent(customerStaff, "UPDATED");
+        customerStaffChangedEventStreamProducer.sendCustomerStaffChangedEvent(customerStaff, "UPDATED");
 
         return updated;
     }
@@ -112,7 +118,8 @@ public class CustomerStaffServiceImpl extends ServiceImpl<CustomerStaffMapper, C
         CustomerStaff customerStaff = this.findCustomerStaffById(staffId);
 
 //        customerStaffChangedEventProducer.sendCustomerStaffChangedEvent(customerStaff, "DELETED");
-        customerStaffChangedEventWithTagProducer.sendCustomerStaffChangedEvent(customerStaff, "DELETED");
+//        customerStaffChangedEventWithTagProducer.sendCustomerStaffChangedEvent(customerStaff, "DELETED");
+        customerStaffChangedEventStreamProducer.sendCustomerStaffChangedEvent(customerStaff, "DELETED");
 
         //通过逻辑删除为来进行逻辑删除
         return this.removeById(staffId);

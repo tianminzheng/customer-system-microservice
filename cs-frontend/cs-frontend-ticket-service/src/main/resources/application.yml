@@ -4,6 +4,12 @@ server:
 spring:
   application:
     name: ticket-service
+
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
     time-zone: Asia/Shanghai
@@ -31,3 +37,19 @@ logging:
 
 rocketmq:
   name-server: 127.0.0.1:9876
+
+---
+
+#Spring Cloud Stream Binder配置
+spring:
+  cloud:
+    stream:
+      function:
+        definition: cluster
+      rocketmq:
+        binder:
+          name-server: localhost:9876
+      bindings:
+        cluster-in-0:
+          destination: cluster
+          group: cluster-group

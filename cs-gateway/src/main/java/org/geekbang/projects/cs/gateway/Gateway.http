@@ -1,0 +1,20 @@
+GET localhost:18080/baidu
+Content-Type: application/json
+
+###
+
+GET localhost:18080/ticket/
+Content-Type: application/json
+
+###
+
+POST localhost:18080/ticket/customerTickets/
+Content-Type: application/json
+
+{
+  "userId" : "100",
+  "staffId" : "53",
+  "inquire" : "你好，测试"
+}
+
+###
