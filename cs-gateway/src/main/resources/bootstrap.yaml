@@ -6,3 +6,12 @@ spring:
   application:
     name: gateway-server
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+logging:
+  level:
+    org.springframework.cloud.gateway: debug

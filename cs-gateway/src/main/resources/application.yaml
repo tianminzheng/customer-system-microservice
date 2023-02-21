@@ -1,9 +1,33 @@
 spring:
+  main:
+    web-application-type: reactive
   cloud:
     gateway:
+      enabled: true
       discovery:
         locator:
+          # 开启从注册中心动态创建路由的功能，利用微服务名进行路由
           enabled: true
+          # 用小写的请求路径的服务名匹配服务。默认为false（大写）。（因为服务注册时服务名被转成大写）
+          lower-case-service-id: true
+      routes:
+        - id: baiduroute
+          uri: https://www.baidu.com
+          predicates:
+            - Path=/baidu/**
+        - id: ticket-service
+          uri: lb://ticket-service
+          predicates:
+            - Path=/ticket/**
+          filters:
+            - StripPrefix=1 #去掉部分URL路径：第一个前缀
+        - id: chat-service
+          uri: lb://chat-service
+          predicates:
+            - Path=/chat/**
+          filters:
+            - StripPrefix=1 #去掉部分URL路径：第一段路由
+            - PrefixPath=/chats #设置自定义前缀
 
 ---
 
@@ -12,17 +36,3 @@ spring:
     nacos:
       discovery:
         server-addr: 127.0.0.1:8848
-
-    gateway:
-      routes:
-        - id: baiduroute
-          uri: https://www.baidu.com
-          predicates:
-            - Path=/baidu/**
-        - id: ticketroute
-#          uri: lb://ticket-service
-          uri: http://localhost:12001/customerTickets/
-          predicates:
-            - Path=/ticket/**
-#          filters:
-#            - PrefixPath=/cs

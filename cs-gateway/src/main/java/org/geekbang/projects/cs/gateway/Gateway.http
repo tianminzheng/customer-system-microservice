@@ -8,6 +8,22 @@ Content-Type: application/json
 
 ###
 
+GET localhost:18080/
+Content-Type: application/json
+
+###
+
+GET localhost:18080/chat-service/chats/
+Content-Type: application/json
+
+###
+
+###相当于是localhost:12002/chats/，去掉chat段路径，再添加chats前缀
+GET localhost:18080/chat/
+Content-Type: application/json
+
+###
+
 POST localhost:18080/ticket/customerTickets/
 Content-Type: application/json
 

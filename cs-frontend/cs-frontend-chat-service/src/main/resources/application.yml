@@ -1,10 +1,13 @@
 server:
-  port: 8081
+  port: 12002
 
 spring:
   application:
-    name: customer-service
-
+    name: chat-service
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
     time-zone: Asia/Shanghai
@@ -26,11 +29,3 @@ mybatis-plus:
   mapper-locations: classpath:mapperXml/*.xml
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
-logging:
-  level:
-    org.springframework.jdbc.core.JdbcTemplate: DEBUG
-
-rocketmq:
-  producer:
-    group: producer_chat
-  name-server: 127.0.0.1:9876
