@@ -1,4 +1,5 @@
 GET localhost:12002/chats/
 Content-Type: application/json
+Authorization: Basic tianyalan 12345
 
 ###
