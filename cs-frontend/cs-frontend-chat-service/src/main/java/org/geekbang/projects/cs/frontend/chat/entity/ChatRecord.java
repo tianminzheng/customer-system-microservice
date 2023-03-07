@@ -1,4 +1,4 @@
-package org.geekbang.projects.cs.frontend.ticket.entity;
+package org.geekbang.projects.cs.frontend.chat.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
@@ -11,32 +11,20 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 
 /**
- 客服工单表
+ 聊天记录主表
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-@TableName("customer_ticket")
-public class CustomerTicket implements Serializable {
+@TableName("chat_record")
+public class ChatRecord implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    /**
-     * 主键
-     */
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
 
-
-    /**
-     * 工单编号
-     */
     private String ticketNo;
-
-    /**
-     * 工单咨询内容
-     */
-    private String inquire;
 
     /**
      * 用户Id
@@ -49,14 +37,9 @@ public class CustomerTicket implements Serializable {
     private Long staffId;
 
     /**
-     * 工单状态，1：初始化，2：进行中，3：结束
+     * 最新一条消息
      */
-    private Integer status;
-
-    /**
-     * 工单评分
-     */
-    private Integer score;
+    private String lastMessage;
 
     /**
      * 创建时间
@@ -64,13 +47,7 @@ public class CustomerTicket implements Serializable {
     private LocalDateTime createTime;
 
     /**
-     * 更新时间
-     */
-    private LocalDateTime updateTime;
-
-    /**
      * TCC执行状态，0：初始化；1：已确认；2：已回滚
      */
     private Integer tccStatus;
-
 }

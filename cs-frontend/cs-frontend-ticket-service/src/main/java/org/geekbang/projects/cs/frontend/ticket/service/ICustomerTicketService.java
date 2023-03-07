@@ -1,9 +1,11 @@
 package org.geekbang.projects.cs.frontend.ticket.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import org.geekbang.projects.cs.infrastructure.exception.BizException;
 import org.geekbang.projects.cs.frontend.ticket.controller.vo.AddTicketReqVO;
 import org.geekbang.projects.cs.frontend.ticket.entity.CustomerTicket;
+import org.geekbang.projects.cs.infrastructure.exception.BizException;
+import org.geekbang.projects.cs.infrastructure.tcc.TccRequest;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * <p>
@@ -12,5 +14,12 @@ import org.geekbang.projects.cs.frontend.ticket.entity.CustomerTicket;
  */
 public interface ICustomerTicketService extends IService<CustomerTicket> {
 
-    void insertTicket(AddTicketReqVO addTicketReqVO) throws BizException;
+    @Transactional(rollbackFor = Throwable.class)
+    void insertTicket(TccRequest<AddTicketReqVO> tccRequest) throws BizException;
+
+    @Transactional(rollbackFor = Throwable.class)
+    void updateTicketSuccessStatus(TccRequest<String> ticketNo);
+
+    @Transactional(rollbackFor = Throwable.class)
+    void updateTicketFailStatus(TccRequest<String> ticketNo);
 }

@@ -1,4 +1,4 @@
-package org.geekbang.projects.cs.frontend.ticket.controller.vo;
+package org.geekbang.projects.cs.frontend.business.controller.vo;
 
 import lombok.Data;
 import lombok.experimental.Accessors;
