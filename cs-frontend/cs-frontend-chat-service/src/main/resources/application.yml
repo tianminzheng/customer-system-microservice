@@ -1,13 +1,17 @@
 server:
-  port: 12002
+  port: 9002
 
 spring:
   application:
     name: chat-service
+
   cloud:
     nacos:
-      discovery:
-        server-addr: 127.0.0.1:8848
+      server-addr: 127.0.0.1:8848
+      enabled: true
+    config:
+      server-addr: 127.0.0.1:8848
+
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
     time-zone: Asia/Shanghai
@@ -22,13 +26,34 @@ spring:
       datasource:
         master:
           driver-class-name: com.mysql.cj.jdbc.Driver
-          url: jdbc:mysql://127.0.0.1:3306/chat_security?characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai
+          url: jdbc:mysql://127.0.0.1:3306/chat_at?characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai
           username: root
           password: root
-  main:
-    allow-bean-definition-overriding: true
 mybatis-plus:
   mapper-locations: classpath:mapperXml/*.xml
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+logging:
+  level:
+    org.springframework.jdbc.core.JdbcTemplate: DEBUG
 
+seata:
+  enable-auto-data-source-proxy: true
+  application-id: ${spring.application.name}
+  tx-service-group: chat-service-group
+  service:
+    vgroupMapping:
+      chat-service-group: default
+    grouplist:
+      default: 127.0.0.1:8091
+  registry:
+    type: nacos
+    nacos.:
+      server-addr: localhost:8848
+      application: seata-server
+      group: SEATA_GROUP
+  config:
+    type: nacos
+    nacos.:
+      server-addr: localhost:8848
+      group: SEATA_GROUP

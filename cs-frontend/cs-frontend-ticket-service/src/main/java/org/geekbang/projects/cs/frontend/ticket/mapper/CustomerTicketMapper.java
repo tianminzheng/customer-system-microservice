@@ -1,5 +1,6 @@
 package org.geekbang.projects.cs.frontend.ticket.mapper;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.geekbang.projects.cs.frontend.ticket.entity.CustomerTicket;
 

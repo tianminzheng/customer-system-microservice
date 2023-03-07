@@ -1,0 +1,10 @@
+POST localhost:9000/business/
+Content-Type: application/json
+
+{
+  "userId" : "101",
+  "staffId" : "202",
+  "inquire" : "你好，我是郑天民"
+}
+
+###

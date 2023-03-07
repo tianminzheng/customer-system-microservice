@@ -11,6 +11,7 @@
 
     <modules>
         <module>cs-frontend-ticket-service</module>
-        <module>cs-frontend-chat-service</module>
+        <module>cs-frontend-chat-service</module>		
+		<module>cs-frontend-business-service</module>
     </modules>
 </project>

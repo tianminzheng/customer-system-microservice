@@ -1,0 +1,11 @@
+POST localhost:8081/chatRecords/
+Content-Type: application/json
+
+{
+  "userId" : "100",
+  "staffId" : "202",
+  "inquire" : "你好，测试",
+  "ticketNo" : "ticketNo1"
+}
+
+###

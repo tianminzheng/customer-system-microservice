@@ -1,9 +1,10 @@
 package org.geekbang.projects.cs.frontend.ticket.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import org.geekbang.projects.cs.infrastructure.exception.BizException;
 import org.geekbang.projects.cs.frontend.ticket.controller.vo.AddTicketReqVO;
 import org.geekbang.projects.cs.frontend.ticket.entity.CustomerTicket;
+import org.geekbang.projects.cs.infrastructure.exception.BizException;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * <p>
