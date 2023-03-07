@@ -1,13 +1,12 @@
 package org.geekbang.projects.cs.frontend.ticket.controller;
 
-import org.geekbang.projects.cs.infrastructure.vo.Result;
-import org.geekbang.projects.cs.frontend.ticket.controller.vo.AddTicketReqVO;
+import org.geekbang.projects.cs.frontend.ticket.controller.vo.AddCustomerTicketReqVO;
 import org.geekbang.projects.cs.frontend.ticket.service.ICustomerTicketService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.UUID;
 
 /**
  * <p>
@@ -22,9 +21,8 @@ public class CustomerTicketController {
     private ICustomerTicketService customerTicketService;
 
     @PostMapping(value = "/")
-    Result<Boolean> insertTicket(@RequestBody AddTicketReqVO addTicketReqVO) {
+    public void generateTicket(@RequestBody AddCustomerTicketReqVO addCustomerTicketReqVO){
 
-        customerTicketService.insertTicket(addTicketReqVO);
-        return Result.success(true);
+        customerTicketService.generateTicket(addCustomerTicketReqVO);
     }
 }

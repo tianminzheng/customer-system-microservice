@@ -1,9 +1,9 @@
 package org.geekbang.projects.cs.frontend.ticket.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import org.geekbang.projects.cs.infrastructure.exception.BizException;
-import org.geekbang.projects.cs.frontend.ticket.controller.vo.AddTicketReqVO;
+import org.geekbang.projects.cs.frontend.ticket.controller.vo.AddCustomerTicketReqVO;
 import org.geekbang.projects.cs.frontend.ticket.entity.CustomerTicket;
+import org.geekbang.projects.cs.frontend.ticket.event.TicketGeneratedEvent;
 
 /**
  * <p>
@@ -12,5 +12,9 @@ import org.geekbang.projects.cs.frontend.ticket.entity.CustomerTicket;
  */
 public interface ICustomerTicketService extends IService<CustomerTicket> {
 
-    void insertTicket(AddTicketReqVO addTicketReqVO) throws BizException;
+    //添加工单记录
+    void generateTicket(AddCustomerTicketReqVO addCustomerTicketReqVO);
+
+    //执行工单生成操作
+    void doGenerateTicket(TicketGeneratedEvent ticketGeneratedEvent);
 }

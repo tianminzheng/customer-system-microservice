@@ -3,13 +3,9 @@ package org.geekbang.projects.cs.frontend.ticket.controller.vo;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
-import java.io.Serializable;
-
 @Data
 @Accessors(chain = true)
-public class AddTicketReqVO implements Serializable {
-
-    private String ticketNo;
+public class AddCustomerTicketReqVO {
 
     private Long userId;
 
