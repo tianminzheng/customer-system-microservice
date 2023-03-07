@@ -25,7 +25,10 @@ spring:
           url: jdbc:mysql://127.0.0.1:3306/chat_security?characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai
           username: root
           password: root
+  main:
+    allow-bean-definition-overriding: true
 mybatis-plus:
   mapper-locations: classpath:mapperXml/*.xml
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+

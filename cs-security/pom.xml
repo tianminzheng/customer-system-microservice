@@ -10,8 +10,9 @@
     <artifactId>cs-security</artifactId>
 
     <modules>
-        <module>cs-security-auth-api</module>
+        <module>cs-security-auth-common</module>
 		<module>cs-security-auth-service</module>
         <module>cs-security-auth-starter</module>
+		<module>cs-security-auth-server</module>
     </modules>
 </project>

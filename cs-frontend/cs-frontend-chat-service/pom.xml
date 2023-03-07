@@ -21,6 +21,12 @@
 
         <dependency>
             <groupId>org.geekbang.projects</groupId>
+            <artifactId>cs-security-auth-common</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.geekbang.projects</groupId>
             <artifactId>cs-security-auth-service</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
@@ -115,6 +121,12 @@
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-oauth2</artifactId>
+            <version>2.2.5.RELEASE</version>
         </dependency>
     </dependencies>
 
