@@ -21,7 +21,6 @@
             <groupId>org.geekbang.projects</groupId>
             <artifactId>cs-integration-api</artifactId>
             <version>0.0.1-snapshot</version>
-            <scope>compile</scope>
         </dependency>
 
         <dependency>
@@ -163,6 +162,11 @@
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
         </dependency>
 
         <dependency>

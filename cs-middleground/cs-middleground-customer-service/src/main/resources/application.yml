@@ -13,7 +13,17 @@ spring:
         cluster-out-0:
           destination: cluster
 
+feign:
+  sentinel:
+    enabled: true
+
 ---
+
+spring:
+  cloud:
+    sentinel:
+      transport:
+        dashboard: 127.0.0.1:8088
 
 ##Spring Cloud Stream Binder配置：延迟消息
 #spring:

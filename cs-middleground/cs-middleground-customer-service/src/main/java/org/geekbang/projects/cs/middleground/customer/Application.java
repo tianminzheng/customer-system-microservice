@@ -7,7 +7,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.loadbalancer.annotation.LoadBalancerClient;
 
-@SpringBootApplication(scanBasePackages = "org.geekbang.projects.cs")
+@SpringBootApplication(scanBasePackages = {"org.geekbang.projects.cs"})
 @MapperScan("org.geekbang.projects.cs.middleground.customer.mapper")
 @LoadBalancerClient(name = "integration-service", configuration = CustomLoadBalancerConfig.class)
 public class Application {

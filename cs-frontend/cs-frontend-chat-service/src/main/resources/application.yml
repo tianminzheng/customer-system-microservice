@@ -32,3 +32,11 @@ mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 
+
+---
+
+spring:
+  cloud:
+    sentinel:
+      transport:
+        dashboard: 127.0.0.1:8088

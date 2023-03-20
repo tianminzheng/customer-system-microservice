@@ -18,6 +18,8 @@ feign:
     config:
       integration-service:
         loggerLevel: FULL
+  sentinel:
+    enabled: true
 
 logging:
   level:
@@ -25,3 +27,11 @@ logging:
       geekbang:
         projects:
           cs: DEBUG
+
+---
+
+spring:
+  cloud:
+    sentinel:
+      transport:
+        dashboard: 127.0.0.1:8088
