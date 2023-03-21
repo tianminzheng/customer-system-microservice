@@ -13,3 +13,8 @@ GET localhost:12002/chats/1
 Content-Type: application/json
 
 ###
+
+GET localhost:12002/chats/switch
+Content-Type: application/json
+
+###
